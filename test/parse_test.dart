@@ -8,7 +8,7 @@ void main() {
   test('minimal set values', () {
     final value = parse(defaultPubspecLock);
     expect(value.packages, isEmpty);
-    expect(value.sdks, VersionConstraint.parse('>=2.7.0 <3.0.0'));
+    expect(value.sdks['dart'], VersionConstraint.parse('>=2.7.0 <3.0.0'));
   });
 
   group('package types -', () {
