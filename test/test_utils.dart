@@ -12,10 +12,10 @@ const defaultPubspecLock = {
 };
 
 Map<String, Object> hostedPackage({
-  String name,
+  required String name,
   String dependency = 'transitive',
-  String url,
-  String version,
+  required String url,
+  required String version,
 }) => _package(
     name: name,
     dependency: dependency,
@@ -28,13 +28,13 @@ Map<String, Object> hostedPackage({
   );
 
 Map<String, Object> gitPackage({
-  String name,
+  required String name,
   String dependency = 'transitive',
-  String path,
-  String ref,
-  String resolvedRef,
-  String url,
-  String version,
+  required String path,
+  required String ref,
+  required String resolvedRef,
+  required String url,
+  required String version,
 }) => _package(
     name: name,
     dependency: dependency,
@@ -49,11 +49,11 @@ Map<String, Object> gitPackage({
   );
 
 Map<String, Object> pathPackage({
-  String name,
+  required String name,
   String dependency = 'direct',
-  String path,
-  bool isRelative,
-  String version,
+  required String path,
+  required bool isRelative,
+  required String version,
 }) => _package(
     name: name,
     dependency: dependency,
@@ -66,11 +66,11 @@ Map<String, Object> pathPackage({
   );
 
 Map<String, Object> _package({
-  String name,
+  required String name,
   String dependency = 'transitive',
-  Map<String, Object> packageDescription,
-  String source,
-  String version,
+  required Map<String, Object> packageDescription,
+  required String source,
+  required String version,
 }) {
   return {
      name: {
@@ -110,10 +110,10 @@ String _encodeJson(Object input) =>
 
 void _printDebugParsedYamlException(ParsedYamlException e) {
   var innerError = e.innerError;
-  StackTrace innerStack;
+  StackTrace? innerStack;
 
   if (innerError is CheckedFromJsonException) {
-    final cfje = innerError as CheckedFromJsonException;
+    final cfje = innerError;
 
     if (cfje.innerError != null) {
       innerError = cfje.innerError;

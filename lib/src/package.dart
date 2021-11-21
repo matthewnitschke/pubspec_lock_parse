@@ -5,10 +5,10 @@ import 'package:pub_semver/pub_semver.dart';
 part 'package.g.dart';
 
 Map<String, Package> parsePackages(Map source) =>
-  source?.map((k, v) {
+  source.map((k, v) {
     final value = v as Map;
     return MapEntry(k, Package.fromJson(value));
-  }) ?? {};
+  });
 
 @JsonSerializable()
 class Package {
@@ -23,10 +23,10 @@ class Package {
   final Version version;
 
   Package({
-    this.dependency,
-    this.description,
-    this.source,
-    this.version,
+    required this.dependency,
+    required this.description,
+    required this.source,
+    required this.version,
   });
 
   factory Package.fromJson(Map json) => _$PackageFromJson(json);
@@ -40,5 +40,4 @@ enum PackageSource {
 
 // ---------------------------------- Parsers ----------------------------------
 
-Version _versionFromString(String input) =>
-    input == null ? null : Version.parse(input);
+Version _versionFromString(String input) => Version.parse(input);
