@@ -1,4 +1,4 @@
-## 2.0,0
+## 2.0.0
 
 - Null safety
 - Min dart sdk to 2.14.0
