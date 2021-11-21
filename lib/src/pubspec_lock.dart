@@ -15,24 +15,22 @@ class PubspecLock {
   final Map<String, VersionConstraint> sdks;
 
   PubspecLock({
-    this.packages,
-    this.sdks,
+    required this.packages,
+    required this.sdks,
   });
 
   factory PubspecLock.fromJson(Map json) => _$PubspecLockFromJson(json);
 
-  factory PubspecLock.parse(String yaml, {Uri sourceUrl}) =>
+  factory PubspecLock.parse(String yaml, {Uri? sourceUrl}) =>
     checkedYamlDecode(
       yaml,
-      (map) => PubspecLock.fromJson(map),
+      (map) => PubspecLock.fromJson(map ?? {}),
       sourceUrl: sourceUrl
     );
 }
 
 // ---------------------------------- Parsers ----------------------------------
 
-Map<String, VersionConstraint> _parseSdks(Map source) =>
-  source?.map((k, v) => MapEntry(k, _versionConstraintFromString(v as String))) ?? {};
+Map<String, VersionConstraint> _parseSdks(Map source) => source.map((k, v) => MapEntry(k, _versionConstraintFromString(v as String)));
 
-VersionConstraint _versionConstraintFromString(String input) =>
-    input == null ? null : VersionConstraint.parse(input);
+VersionConstraint _versionConstraintFromString(String input) => VersionConstraint.parse(input);

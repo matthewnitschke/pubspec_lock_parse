@@ -6,13 +6,14 @@ part of 'pubspec_lock.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PubspecLock _$PubspecLockFromJson(Map json) {
-  return $checkedNew('PubspecLock', json, () {
-    final val = PubspecLock(
-      packages:
-          $checkedConvert(json, 'packages', (v) => parsePackages(v as Map)),
-      sdks: $checkedConvert(json, 'sdks', (v) => _parseSdks(v as Map)),
+PubspecLock _$PubspecLockFromJson(Map json) => $checkedCreate(
+      'PubspecLock',
+      json,
+      ($checkedConvert) {
+        final val = PubspecLock(
+          packages: $checkedConvert('packages', (v) => parsePackages(v as Map)),
+          sdks: $checkedConvert('sdks', (v) => _parseSdks(v as Map)),
+        );
+        return val;
+      },
     );
-    return val;
-  });
-}

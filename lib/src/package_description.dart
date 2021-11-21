@@ -13,6 +13,8 @@ PackageDescription parsePackageDescription(Object data) {
       return HostedPackageDescription.fromJson(data);
     }
   }
+
+  throw FormatException('Unknown package description type');
 }
 
 abstract class PackageDescription { }
@@ -23,7 +25,10 @@ class HostedPackageDescription extends PackageDescription {
 
   final String url;
 
-  HostedPackageDescription({ this.name, this.url });
+  HostedPackageDescription({ 
+    required this.name, 
+    required this.url,
+  });
 
   factory HostedPackageDescription.fromJson(Map json) => _$HostedPackageDescriptionFromJson(json);
 }
@@ -39,7 +44,12 @@ class GitPackageDescription extends PackageDescription {
   
   final String url;
 
-  GitPackageDescription({ this.path, this.ref, this.resolvedRef, this.url });
+  GitPackageDescription({ 
+    required this.path,
+    required this.ref, 
+    required this.resolvedRef, 
+    required this.url, 
+  });
 
   factory GitPackageDescription.fromJson(Map json) => _$GitPackageDescriptionFromJson(json);
 }
@@ -50,7 +60,10 @@ class PathPackageDescription extends PackageDescription {
   
   final bool relative;
 
-  PathPackageDescription({ this.path, this.relative });
+  PathPackageDescription({ 
+    required this.path,
+    required this.relative,
+  });
 
   factory PathPackageDescription.fromJson(Map json) => _$PathPackageDescriptionFromJson(json);
 }

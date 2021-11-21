@@ -25,7 +25,7 @@ void main() {
       });
 
 
-      final package = value.packages['package_a'];
+      final package = value.packages['package_a']!;
       expect(package.dependency, 'transitive');
       expect(package.description is HostedPackageDescription, isTrue);
       expect(package.version, Version.parse('1.2.3'));
@@ -50,7 +50,7 @@ void main() {
         }
       });
 
-      final package = value.packages['package_a'];
+      final package = value.packages['package_a']!;
       expect(package.dependency, 'transitive');
       expect(package.description is GitPackageDescription, isTrue);
       expect(package.version, Version.parse('1.2.3'));
@@ -75,7 +75,7 @@ void main() {
         }
       });
 
-      final package = value.packages['package_a'];
+      final package = value.packages['package_a']!;
       expect(package.dependency, 'direct');
       expect(package.description is PathPackageDescription, isTrue);
       expect(package.version, Version.parse('1.2.3'));
