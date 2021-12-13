@@ -1,3 +1,6 @@
+## 2.0.1
+- Better documentation
+
 ## 2.0.0
 
 - Null safety

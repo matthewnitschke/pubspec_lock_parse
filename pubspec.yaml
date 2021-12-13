@@ -1,5 +1,5 @@
 name: pubspec_lock_parse
-version: 2.0.0
+version: 2.0.1
 description: Simple package for parsing pubspec.lock files with a type-safe API and rich error reporting.
 repository: https://github.com/matthewnitschke/pubspec_lock_parse
 
