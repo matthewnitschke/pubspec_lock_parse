@@ -16,16 +16,13 @@ Map<String, Object> hostedPackage({
   String dependency = 'transitive',
   required String url,
   required String version,
-}) => _package(
-    name: name,
-    dependency: dependency,
-    packageDescription: {
-      'name': name,
-      'url': url
-    },
-    source: 'hosted',
-    version: version
-  );
+}) =>
+    _package(
+        name: name,
+        dependency: dependency,
+        packageDescription: {'name': name, 'url': url},
+        source: 'hosted',
+        version: version);
 
 Map<String, Object> gitPackage({
   required String name,
@@ -35,18 +32,18 @@ Map<String, Object> gitPackage({
   required String resolvedRef,
   required String url,
   required String version,
-}) => _package(
-    name: name,
-    dependency: dependency,
-    packageDescription: {
-      'path': path,
-      'ref': ref,
-      'resolved-ref': resolvedRef,
-      'url': url
-    },
-    source: 'git',
-    version: version
-  );
+}) =>
+    _package(
+        name: name,
+        dependency: dependency,
+        packageDescription: {
+          'path': path,
+          'ref': ref,
+          'resolved-ref': resolvedRef,
+          'url': url
+        },
+        source: 'git',
+        version: version);
 
 Map<String, Object> pathPackage({
   required String name,
@@ -54,16 +51,16 @@ Map<String, Object> pathPackage({
   required String path,
   required bool isRelative,
   required String version,
-}) => _package(
-    name: name,
-    dependency: dependency,
-    packageDescription: {
-      'path': path,
-      'relative': isRelative,
-    },
-    source: 'path',
-    version: version
-  );
+}) =>
+    _package(
+        name: name,
+        dependency: dependency,
+        packageDescription: {
+          'path': path,
+          'relative': isRelative,
+        },
+        source: 'path',
+        version: version);
 
 Map<String, Object> _package({
   required String name,
@@ -73,7 +70,7 @@ Map<String, Object> _package({
   required String version,
 }) {
   return {
-     name: {
+    name: {
       'dependency': dependency,
       'description': packageDescription,
       'source': source,
@@ -106,7 +103,6 @@ PubspecLock parse(
 
 String _encodeJson(Object input) =>
     const JsonEncoder.withIndent(' ').convert(input);
-
 
 void _printDebugParsedYamlException(ParsedYamlException e) {
   var innerError = e.innerError;

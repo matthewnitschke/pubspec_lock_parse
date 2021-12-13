@@ -1,4 +1,3 @@
-
 import 'package:json_annotation/json_annotation.dart';
 
 part 'package_description.g.dart';
@@ -17,7 +16,7 @@ PackageDescription parsePackageDescription(Object data) {
   throw FormatException('Unknown package description type');
 }
 
-abstract class PackageDescription { }
+abstract class PackageDescription {}
 
 @JsonSerializable()
 class HostedPackageDescription extends PackageDescription {
@@ -25,12 +24,13 @@ class HostedPackageDescription extends PackageDescription {
 
   final String url;
 
-  HostedPackageDescription({ 
-    required this.name, 
+  HostedPackageDescription({
+    required this.name,
     required this.url,
   });
 
-  factory HostedPackageDescription.fromJson(Map json) => _$HostedPackageDescriptionFromJson(json);
+  factory HostedPackageDescription.fromJson(Map json) =>
+      _$HostedPackageDescriptionFromJson(json);
 }
 
 @JsonSerializable()
@@ -38,33 +38,34 @@ class GitPackageDescription extends PackageDescription {
   final String path;
 
   final String ref;
-  
+
   @JsonKey(name: 'resolved-ref')
   final String resolvedRef;
-  
+
   final String url;
 
-  GitPackageDescription({ 
+  GitPackageDescription({
     required this.path,
-    required this.ref, 
-    required this.resolvedRef, 
-    required this.url, 
+    required this.ref,
+    required this.resolvedRef,
+    required this.url,
   });
 
-  factory GitPackageDescription.fromJson(Map json) => _$GitPackageDescriptionFromJson(json);
+  factory GitPackageDescription.fromJson(Map json) =>
+      _$GitPackageDescriptionFromJson(json);
 }
 
 @JsonSerializable()
 class PathPackageDescription extends PackageDescription {
   final String path;
-  
+
   final bool relative;
 
-  PathPackageDescription({ 
+  PathPackageDescription({
     required this.path,
     required this.relative,
   });
 
-  factory PathPackageDescription.fromJson(Map json) => _$PathPackageDescriptionFromJson(json);
+  factory PathPackageDescription.fromJson(Map json) =>
+      _$PathPackageDescriptionFromJson(json);
 }
-

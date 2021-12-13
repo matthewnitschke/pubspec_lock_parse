@@ -17,20 +17,19 @@ void main() {
         ...defaultPubspecLock,
         'packages': {
           ...hostedPackage(
-            name: 'package_a',
-            url: 'https://pub.dartlang.org',
-            version: '1.2.3'
-          )
+              name: 'package_a',
+              url: 'https://pub.dartlang.org',
+              version: '1.2.3')
         }
       });
-
 
       final package = value.packages['package_a']!;
       expect(package.dependency, 'transitive');
       expect(package.description is HostedPackageDescription, isTrue);
       expect(package.version, Version.parse('1.2.3'));
 
-      final packageDescription = package.description as HostedPackageDescription;
+      final packageDescription =
+          package.description as HostedPackageDescription;
       expect(packageDescription.name, 'package_a');
       expect(packageDescription.url, 'https://pub.dartlang.org');
     });
@@ -40,13 +39,12 @@ void main() {
         ...defaultPubspecLock,
         'packages': {
           ...gitPackage(
-            name: 'package_a',
-            path: '../path',
-            ref: 'some-branch-name',
-            resolvedRef: 'abcdefg',
-            url: 'git@github.com:SomeOrg/SomeRepo.git',
-            version: '1.2.3'
-          )
+              name: 'package_a',
+              path: '../path',
+              ref: 'some-branch-name',
+              resolvedRef: 'abcdefg',
+              url: 'git@github.com:SomeOrg/SomeRepo.git',
+              version: '1.2.3')
         }
       });
 
@@ -67,11 +65,10 @@ void main() {
         ...defaultPubspecLock,
         'packages': {
           ...pathPackage(
-            name: 'package_a',
-            path: '../path',
-            isRelative: true,
-            version: '1.2.3'
-          )
+              name: 'package_a',
+              path: '../path',
+              isRelative: true,
+              version: '1.2.3')
         }
       });
 
