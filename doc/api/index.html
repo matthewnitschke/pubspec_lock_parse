@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 2.0.0">
+  <meta name="description" content="pubspec_lock_parse API docs, for the Dart programming language.">
+  <title>pubspec_lock_parse - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li class="self-crumb">pubspec_lock_parse package</li>
+  </ol>
+  <div class="self-name">pubspec_lock_parse</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <p><a href="https://github.com/matthewnitschke/pubspec_lock_parse/actions/workflows/dart.yml"><img src="https://github.com/matthewnitschke/pubspec_lock_parse/actions/workflows/dart.yml/badge.svg" alt="Dart"></a>
+<a href="https://pub.dev/packages/pubspec_lock_parse"><img src="https://img.shields.io/pub/v/pubspec_lock_parse.svg" alt="pub package"></a></p>
+<p>Supports parsing <code>pubspec.lock</code> files with robust error reporting</p>
+<p>Designed around the <a href="https://github.com/dart-lang/pubspec_parse"><code>pubspec_parse</code></a> package, and mirrors its implementation and interface</p>
+<h2 id="usage">Usage</h2>
+<pre class="language-dart"><code class="language-dart">import 'dart:io';
+import 'package:pubspec_lock_parse/pubspec_lock_parse.dart';
+
+void main() {
+    final lockStr = File('path/to/pubspec.lock').readAsStringSync();
+    final lockfile = PubspecLock.parse(lockStr)
+}
+</code></pre>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="pubspec_lock_parse">
+  <span class="name"><a href="pubspec_lock_parse/pubspec_lock_parse-library.html">pubspec_lock_parse</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li class="self-crumb">pubspec_lock_parse package</li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">pubspec_lock_parse</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="pubspec_lock_parse/pubspec_lock_parse-library.html">pubspec_lock_parse</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    pubspec_lock_parse
+      2.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
