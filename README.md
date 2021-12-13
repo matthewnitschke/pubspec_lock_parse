@@ -4,3 +4,15 @@
 Supports parsing `pubspec.lock` files with robust error reporting
 
 Designed around the [`pubspec_parse`](https://github.com/dart-lang/pubspec_parse) package, and mirrors its implementation and interface
+
+## Usage
+
+```dart
+import 'dart:io';
+import 'package:pubspec_lock_parse/pubspec_lock_parse.dart';
+
+void main() {
+    final lockStr = File('path/to/pubspec.lock').readAsStringSync();
+    final lockfile = PubspecLock.parse(lockStr)
+}
+```
