@@ -13,7 +13,7 @@ import 'package:pubspec_lock_parse/pubspec_lock_parse.dart';
 
 void main() {
     final lockStr = File('path/to/pubspec.lock').readAsStringSync();
-    final lockfile = PubspecLock.parse(lockStr)
+    final lockfile = PubspecLock.parse(lockStr);
 }
 ```
 
