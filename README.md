@@ -16,3 +16,5 @@ void main() {
     final lockfile = PubspecLock.parse(lockStr)
 }
 ```
+
+You can find more about the `PubspecLock` object in the documentation [here](https://pub.dev/documentation/pubspec_lock_parse/latest/)
