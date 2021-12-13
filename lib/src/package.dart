@@ -4,11 +4,10 @@ import 'package:pub_semver/pub_semver.dart';
 
 part 'package.g.dart';
 
-Map<String, Package> parsePackages(Map source) =>
-  source.map((k, v) {
-    final value = v as Map;
-    return MapEntry(k, Package.fromJson(value));
-  });
+Map<String, Package> parsePackages(Map source) => source.map((k, v) {
+      final value = v as Map;
+      return MapEntry(k, Package.fromJson(value));
+    });
 
 @JsonSerializable()
 class Package {
@@ -32,11 +31,7 @@ class Package {
   factory Package.fromJson(Map json) => _$PackageFromJson(json);
 }
 
-enum PackageSource {
-  hosted,
-  git,
-  path
-}
+enum PackageSource { hosted, git, path }
 
 // ---------------------------------- Parsers ----------------------------------
 
