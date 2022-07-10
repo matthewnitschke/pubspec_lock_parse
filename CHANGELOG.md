@@ -1,3 +1,6 @@
+## 2.1.0
+- added `toJson` methods to all exported objects
+
 ## 2.0.1
 - Better documentation
 
