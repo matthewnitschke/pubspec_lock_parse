@@ -16,9 +16,6 @@ PackageDescription packageDescriptionFromJson(Object data) {
   throw FormatException('Unknown package description type');
 }
 
-// Object packageDescirptionToJson(PackageDescription desc) {
-//   if (desc is H)
-// }
 
 abstract class PackageDescription {
   Map<String, dynamic> toJson();
