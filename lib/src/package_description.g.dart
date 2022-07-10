@@ -19,6 +19,13 @@ HostedPackageDescription _$HostedPackageDescriptionFromJson(Map json) =>
       },
     );
 
+Map<String, dynamic> _$HostedPackageDescriptionToJson(
+        HostedPackageDescription instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'url': instance.url,
+    };
+
 GitPackageDescription _$GitPackageDescriptionFromJson(Map json) =>
     $checkedCreate(
       'GitPackageDescription',
@@ -35,6 +42,15 @@ GitPackageDescription _$GitPackageDescriptionFromJson(Map json) =>
       fieldKeyMap: const {'resolvedRef': 'resolved-ref'},
     );
 
+Map<String, dynamic> _$GitPackageDescriptionToJson(
+        GitPackageDescription instance) =>
+    <String, dynamic>{
+      'path': instance.path,
+      'ref': instance.ref,
+      'resolved-ref': instance.resolvedRef,
+      'url': instance.url,
+    };
+
 PathPackageDescription _$PathPackageDescriptionFromJson(Map json) =>
     $checkedCreate(
       'PathPackageDescription',
@@ -47,3 +63,10 @@ PathPackageDescription _$PathPackageDescriptionFromJson(Map json) =>
         return val;
       },
     );
+
+Map<String, dynamic> _$PathPackageDescriptionToJson(
+        PathPackageDescription instance) =>
+    <String, dynamic>{
+      'path': instance.path,
+      'relative': instance.relative,
+    };

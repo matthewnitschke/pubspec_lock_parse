@@ -17,3 +17,9 @@ PubspecLock _$PubspecLockFromJson(Map json) => $checkedCreate(
         return val;
       },
     );
+
+Map<String, dynamic> _$PubspecLockToJson(PubspecLock instance) =>
+    <String, dynamic>{
+      'packages': instance.packages.map((k, e) => MapEntry(k, e.toJson())),
+      'sdks': _serializeSdks(instance.sdks),
+    };
