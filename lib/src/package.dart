@@ -13,12 +13,12 @@ Map<String, Package> parsePackages(Map source) => source.map((k, v) {
 class Package {
   final String dependency;
 
-  @JsonKey(fromJson: parsePackageDescription)
+  @JsonKey(fromJson: packageDescriptionFromJson)
   final PackageDescription description;
 
   final PackageSource source;
 
-  @JsonKey(fromJson: _versionFromString)
+  @JsonKey(fromJson: _versionFromString, toJson: _versionToString)
   final Version version;
 
   Package({
@@ -29,6 +29,8 @@ class Package {
   });
 
   factory Package.fromJson(Map json) => _$PackageFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$PackageToJson(this);
 }
 
 enum PackageSource { hosted, git, path }
@@ -36,3 +38,5 @@ enum PackageSource { hosted, git, path }
 // ---------------------------------- Parsers ----------------------------------
 
 Version _versionFromString(String input) => Version.parse(input);
+
+String _versionToString(Version version) => version.toString();

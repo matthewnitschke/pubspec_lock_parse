@@ -10,7 +10,7 @@ class PubspecLock {
   @JsonKey(fromJson: parsePackages)
   final Map<String, Package> packages;
 
-  @JsonKey(fromJson: _parseSdks)
+  @JsonKey(fromJson: _parseSdks, toJson: _serializeSdks)
   final Map<String, VersionConstraint> sdks;
 
   PubspecLock({
@@ -19,6 +19,8 @@ class PubspecLock {
   });
 
   factory PubspecLock.fromJson(Map json) => _$PubspecLockFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PubspecLockToJson(this);
 
   factory PubspecLock.parse(String yaml, {Uri? sourceUrl}) =>
       checkedYamlDecode(yaml, (map) => PubspecLock.fromJson(map ?? {}),
@@ -29,6 +31,9 @@ class PubspecLock {
 
 Map<String, VersionConstraint> _parseSdks(Map source) => source
     .map((k, v) => MapEntry(k, _versionConstraintFromString(v as String)));
+
+Map<String, dynamic> _serializeSdks(Map<String, VersionConstraint> sdks) => sdks
+  .map((k, v) => MapEntry(k, v.toString()));
 
 VersionConstraint _versionConstraintFromString(String input) =>
     VersionConstraint.parse(input);

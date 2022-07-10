@@ -13,7 +13,7 @@ Package _$PackageFromJson(Map json) => $checkedCreate(
         final val = Package(
           dependency: $checkedConvert('dependency', (v) => v as String),
           description: $checkedConvert(
-              'description', (v) => parsePackageDescription(v as Object)),
+              'description', (v) => packageDescriptionFromJson(v as Object)),
           source: $checkedConvert(
               'source', (v) => $enumDecode(_$PackageSourceEnumMap, v)),
           version: $checkedConvert(
@@ -22,6 +22,13 @@ Package _$PackageFromJson(Map json) => $checkedCreate(
         return val;
       },
     );
+
+Map<String, dynamic> _$PackageToJson(Package instance) => <String, dynamic>{
+      'dependency': instance.dependency,
+      'description': instance.description.toJson(),
+      'source': _$PackageSourceEnumMap[instance.source]!,
+      'version': _versionToString(instance.version),
+    };
 
 const _$PackageSourceEnumMap = {
   PackageSource.hosted: 'hosted',
