@@ -34,4 +34,5 @@ const _$PackageSourceEnumMap = {
   PackageSource.hosted: 'hosted',
   PackageSource.git: 'git',
   PackageSource.path: 'path',
+  PackageSource.sdk: 'sdk',
 };
