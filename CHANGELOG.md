@@ -1,3 +1,6 @@
+## 2.2.0
+- added `source: sdk` package types
+
 ## 2.1.0
 - added `toJson` methods to all exported objects
 
