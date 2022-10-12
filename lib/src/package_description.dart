@@ -11,14 +11,15 @@ PackageDescription packageDescriptionFromJson(Object data) {
     } else {
       return HostedPackageDescription.fromJson(data);
     }
+  } else if (data is String) {
+    return SdkPackageDescription(description: data);
   }
 
   throw FormatException('Unknown package description type');
 }
 
-
 abstract class PackageDescription {
-  Map<String, dynamic> toJson();
+  dynamic toJson();
 }
 
 @JsonSerializable()
@@ -77,4 +78,18 @@ class PathPackageDescription extends PackageDescription {
       _$PathPackageDescriptionFromJson(json);
 
   Map<String, dynamic> toJson() => _$PathPackageDescriptionToJson(this);
+}
+
+class SdkPackageDescription extends PackageDescription {
+  final String description;
+
+  SdkPackageDescription({
+    required this.description,
+  });
+
+  factory SdkPackageDescription.fromJson(String description) =>
+      SdkPackageDescription(description: description);
+
+  @override
+  dynamic toJson() => description;
 }

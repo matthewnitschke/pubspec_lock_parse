@@ -9,6 +9,7 @@ void main() {
 
   print('Dependencies found in lockfile:');
   for (final packageName in lockfile.packages.keys) {
-    print('  $packageName: ${lockfile.packages[packageName]!.version.toString()}');
+    print(
+        '  $packageName: ${lockfile.packages[packageName]!.version.toString()}');
   }
 }

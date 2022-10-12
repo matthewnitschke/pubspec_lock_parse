@@ -29,11 +29,11 @@ class Package {
   });
 
   factory Package.fromJson(Map json) => _$PackageFromJson(json);
-  
+
   Map<String, dynamic> toJson() => _$PackageToJson(this);
 }
 
-enum PackageSource { hosted, git, path }
+enum PackageSource { hosted, git, path, sdk }
 
 // ---------------------------------- Parsers ----------------------------------
 
