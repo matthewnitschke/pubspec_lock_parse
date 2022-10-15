@@ -53,5 +53,5 @@ void main() {
 print(PathPackageDescription(
     path: '../somePackage',
     relative: true,
-));
+).toJson());
 ```
